@@ -1,3 +1,7 @@
-export default function Navbar({ username }) {
-  return <div>Hey {username}</div>;
+import { useContext } from "react";
+import { UserContext } from "../App";
+
+export default function Navbar() {
+  const { user } = useContext(UserContext);
+  return <div>Hey {user.username}</div>;
 }

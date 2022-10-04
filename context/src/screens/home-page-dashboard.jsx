@@ -1,20 +1,24 @@
-export default function HomePageDashboard({ username }) {
+import { useContext } from "react";
+import { UserContext } from "../App";
+
+export default function HomePageDashboard() {
   return (
     <div>
-      <HomePageDashboardCard username={username} />
+      <HomePageDashboardCard />
     </div>
   );
 }
 
-function HomePageDashboardCard({ username }) {
+function HomePageDashboardCard() {
   return (
     <div>
       Projects worked on by a person. Lets give this person some credits?
-      <HomePageDashboardCardText username={username} />
+      <HomePageDashboardCardText />
     </div>
   );
 }
 
-function HomePageDashboardCardText({ username }) {
-  return <h1>Credits to {username}</h1>;
+function HomePageDashboardCardText() {
+  const { user } = useContext(UserContext);
+  return <h1>Credits to {user.username}</h1>;
 }
